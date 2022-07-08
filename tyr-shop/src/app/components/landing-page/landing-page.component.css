@@ -62,6 +62,11 @@ line-height: 30px;
 color: #000000;
 }
 
+#inicio:hover {
+    background-color: #1bab9d;
+    cursor: pointer;
+}
+
 #clientes {
 position: absolute;
 width: 415px;
@@ -81,6 +86,11 @@ line-height: 30px;
 
 
 color: #000000;
+}
+
+#clientes:hover {
+    background-color: #1bab9d;
+    cursor: pointer;
 }
 
 #grupo1 {
