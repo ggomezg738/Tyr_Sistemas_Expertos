@@ -10,22 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;400&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="signup-form text-center">
-        <form th:action="@{/productos/listarProducto}"  id="sing"  oninput='up2.setCustomValidity(up2.value != contrasenia.value ? "Las contraseñas no coinciden" : "")' style="height: 483px !important; width: 389px; ">
-            <div class="text-center">
-                <img id="imagen" class="rounded" src="/images/logo-group.svg">
-            </div>
-            <h2 class="text-warning" style="color:#18DAC8 ;">Iniciar</h2>
+    <img id="logo" href="#" src="../../../assets/logo.svg">
+    <div class="signup-form" id="formulario">
+        <form id="sing">
+            <h2 class="text fw-bold">Iniciar</h2>
             <p class="hint-text">Ingresa tus datos para autenticarte</p>
             <div class="form-group">
-                <input type="email" class="form-control btn-secondary bg-light text-secondary" id="correoElectronico" name="correoElectronico" placeholder="Correo electrónico" required="required">
+                <input type="email" class="form-control mb-4" id="correoElectronico" name="correoElectronico" placeholder="Correo electrónico" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control btn-secondary bg-light text-secondary" id="contrasenia" name="contrasenia" placeholder="Contraseña" required="required">
+                <input type="password" class="form-control mb-4" id="contrasenia" name="contrasenia" placeholder="Contraseña" required="required">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn bg-warning btn-lg btn-block" style="background-color:#18DAC8">Iniciar</button>
+                <button type="submit" class="btn mb-4">Iniciar</button>
+            </div><br><br><br>
+            <div class="form-group">
+                <a href="" id="enlaceNuevo">¿Eres nuevo aqui?</a>
             </div>
         </form>
     </div>
