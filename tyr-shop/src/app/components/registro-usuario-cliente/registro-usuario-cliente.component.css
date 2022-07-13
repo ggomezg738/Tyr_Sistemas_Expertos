@@ -1,0 +1,66 @@
+body {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+#logo {
+    position: absolute;
+    width: 254.67px;
+    height: 191px;
+    left: 0px;
+    top: 0px
+    }
+
+#formulario{
+    position: absolute;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    margin-top: 115px;
+    margin-left: 550px;
+    margin-right: 600px;
+    width: 500px;
+    height: 540px;
+    }
+    
+    #sing{
+        height: 400px;
+        width: 400px;
+        margin-top: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+.form-control{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    Height:43px;
+}
+
+.form-control:focus{
+    border-color:#1bab9d;
+
+}
+
+.btn{
+    position: absolute;
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    margin-left: 9rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #18DAC8;
+}
+
+.btn:hover{
+    background-color: #1bab9d;
+}
+
+#enlaceNuevo{
+    text-decoration: none;
+    color: #000000;
+}
+
+#enlaceNuevo:hover{
+    text-decoration: underline;
+    color: #1bab9d;
+}
