@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registro-usuario-cliente',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroUsuarioClienteComponent implements OnInit {
 
-  constructor() { }
+  personas:any = [];
+  persona:any = {
+    nombre:'',
+    apellido:'',
+    correoElectronico:'',
+    contrasenia:'',
+    direccion:''
+  }
+
+  constructor(private httpClient:HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  guardar(){
+    this.httpClient.post('http://localhost:8888/usuarios', this.persona)
+    .subscribe(res=>{
+        console.log(res);
+    });
   }
 
 }

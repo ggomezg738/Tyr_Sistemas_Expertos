@@ -9,6 +9,8 @@ import { AdministradorComponent } from './components/administrador/administrador
 import { EleccionComponent } from './components/eleccion/eleccion.component';
 import { RegistroUsuarioClienteComponent } from './components/registro-usuario-cliente/registro-usuario-cliente.component';
 import { RegistroUsuarioEmpresaComponent } from './components/registro-usuario-empresa/registro-usuario-empresa.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { RegistroUsuarioEmpresaComponent } from './components/registro-usuario-e
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

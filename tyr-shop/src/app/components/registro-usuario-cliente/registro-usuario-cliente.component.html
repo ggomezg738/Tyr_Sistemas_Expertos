@@ -15,22 +15,22 @@
         <form id="sing">
             <h2 class="text fw-bold">Registrarse</h2>
             <div class="form-group">
-                <input type="text" class="form-control mb-3 mt-4" id="nombre" name="nombre" placeholder="Nombre" required="required">
+                <input [(ngModel)]="persona.nombre" type="text" class="form-control mb-3 mt-4" id="nombre" name="nombre" placeholder="Nombre" required="required">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control mb-3" id="apellido" name="apellido" placeholder="Apellido" required="required">
+                <input [(ngModel)]="persona.apellido" type="text" class="form-control mb-3" id="apellido" name="apellido" placeholder="Apellido" required="required">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control mb-3" id="correoElectronico" name="correoElectronico" placeholder="Correo Electronico" required="required">
+                <input [(ngModel)]="persona.correoElectronico" type="email" class="form-control mb-3" id="correoElectronico" name="correoElectronico" placeholder="Correo Electronico" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control mb-3" id="contrasenia" name="contrasenia" placeholder="Contraseña" required="required">
+                <input [(ngModel)]="persona.contrasenia" type="password" class="form-control mb-3" id="contrasenia" name="contrasenia" placeholder="Contraseña" required="required">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control mb-3" id="direccion" name="direccion" placeholder="Dirección" required="required">
+                <input [(ngModel)]="persona.direccion" type="text" class="form-control mb-3" id="direccion" name="direccion" placeholder="Dirección" required="required">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn mb-3">Crear</button>
+                <button (click)="guardar()" type="submit" class="btn mb-3">Crear</button>
             </div><br><br><br>
             <div class="form-group">
                 <p>¿Ya tienes una cuenta?<a href="" id="enlaceNuevo">Inicia Sesión</a></p>
