@@ -11,6 +11,11 @@ import { RegistroUsuarioClienteComponent } from './components/registro-usuario-c
 import { RegistroUsuarioEmpresaComponent } from './components/registro-usuario-empresa/registro-usuario-empresa.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VisualizacionDeEmpresasComponent } from './components/registro-usuario-cliente/visualizacion-de-empresas/visualizacion-de-empresas.component';
+import { VisualizacionDeProductosComponent } from './components/registro-usuario-cliente/visualizacion-de-productos/visualizacion-de-productos.component';
+import { CestaDeCompraComponent } from './components/registro-usuario-cliente/cesta-de-compra/cesta-de-compra.component';
+import { DescripcionProductoComponent } from './components/registro-usuario-cliente/descripcion-producto/descripcion-producto.component';
+import { HistorialDeComprasComponent } from './components/registro-usuario-cliente/historial-de-compras/historial-de-compras.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     AdministradorComponent,
     EleccionComponent,
     RegistroUsuarioClienteComponent,
-    RegistroUsuarioEmpresaComponent
+    RegistroUsuarioEmpresaComponent,
+    VisualizacionDeEmpresasComponent,
+    VisualizacionDeProductosComponent,
+    CestaDeCompraComponent,
+    DescripcionProductoComponent,
+    HistorialDeComprasComponent
   ],
   imports: [
     BrowserModule,

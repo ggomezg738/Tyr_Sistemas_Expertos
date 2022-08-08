@@ -1,0 +1,52 @@
+body {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+#buscar{
+    background-color:azure;
+    border: 1px solid azure;
+    border-right: 1px solid rgb(241, 236, 236);
+    border-radius: 5px 0px 0px 5px !important;
+    width: 500px !important;
+    height: 50px;
+    margin-left: 300px;
+}
+#buscar:focus{
+    border-color:azure;
+}
+.btn{
+    border-radius: 0px 5px 5px 0px !important;
+    background-color:azure;
+}
+.btn:focus{
+    background-color:azure;
+}
+.btn:hover{
+    background-color:azure;
+}
+#navbarSupportedContent{
+    margin-left: 350px;
+}
+#carrito{
+    margin-right: 30px;
+}
+.entrar{
+    background-color:#18DAC8;
+    border: 1px solid #18DAC8;
+    border-radius: 5px;
+    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.25);
+}
+.entrar:hover {
+    background-color: #1bab9d;
+    cursor: pointer;
+}
+
+#enlace{
+    text-decoration: none;
+    color: black;
+    margin-left: 70px;
+}
+
+#enlace:hover {
+    text-decoration: underline;
+}
