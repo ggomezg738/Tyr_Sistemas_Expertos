@@ -16,6 +16,7 @@ import { VisualizacionDeProductosComponent } from './components/registro-usuario
 import { CestaDeCompraComponent } from './components/registro-usuario-cliente/cesta-de-compra/cesta-de-compra.component';
 import { DescripcionProductoComponent } from './components/registro-usuario-cliente/descripcion-producto/descripcion-producto.component';
 import { HistorialDeComprasComponent } from './components/registro-usuario-cliente/historial-de-compras/historial-de-compras.component';
+import { EmpresaComponent } from './components/registro-usuario-empresa/empresa/empresa.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HistorialDeComprasComponent } from './components/registro-usuario-clien
     VisualizacionDeProductosComponent,
     CestaDeCompraComponent,
     DescripcionProductoComponent,
-    HistorialDeComprasComponent
+    HistorialDeComprasComponent,
+    EmpresaComponent
   ],
   imports: [
     BrowserModule,
