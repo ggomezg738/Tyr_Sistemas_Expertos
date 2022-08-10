@@ -158,7 +158,7 @@
       </div>
       <div class="modal-footer flex-row justify-content-between">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary guargar">Guardar</button>
+        <button type="button" class="btn-primary guardar">Guardar</button>
       </div>
     </div>
   </div>
@@ -168,15 +168,22 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Imagenes, Videos y otros archivos</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input class="ventana" type="text" placeholder="Nombre">
+      <input class="mt-3 mb-3" type="file" name="archivo" id="archivo">
+      <select class="ventana" name="" id="">
+        <option value=" "  selected disabled hidden>Tipo de archivo</option>
+        <option value="1">Imagen</option>
+        <option value="2">Video</option>
+        <option value="3">Archivos genericos</option>
+      </select>
+        <button type="button" class="btn-primary guardar float-end mt-4">Actualizar</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn-primary">Save changes</button>
+      <div class="modal-footer justify-content-end">
+        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -186,15 +193,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Imagenes, Videos y otros archivos</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <span>Nombre archivo</span>
+        <button type="button" class="btn-primary guardar mx-xxl-5">Eliminar</button>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-end">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
+       
       </div>
     </div>
   </div>
@@ -204,15 +212,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input class="ventana mt-3" type="text" placeholder="Nombre del producto" style="width: 350px;">
+        <input class="ventana mt-3" type="text" placeholder="Descripcion" style="width: 350px;">
+        <input class="ventana mt-3" type="number" placeholder="Precio">
+        <input class="mt-3" type="file" placeholder="subir archivo">
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-between">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
+        <button type="button" class="btn-primary guardar">Guardar</button>
       </div>
     </div>
   </div>
@@ -222,15 +233,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Producto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input class="ventana mt-3" type="text" placeholder="Nombre del producto" style="width: 350px;">
+        <input class="ventana mt-3" type="text" placeholder="Descripcion" style="width: 350px;">
+        <input class="ventana mt-3" type="number" placeholder="Precio">
+        <input class="mt-3" type="file" placeholder="subir archivo">
+        <button type="button" class="btn-primary guardar float-end mt-5">Actualizar</button>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-between">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -240,15 +254,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <span>Nombre Producto</span>
+        <button type="button" class="btn-primary guardar mx-xxl-5">Eliminar</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -258,15 +272,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Categoria</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input class="ventana mt-3" type="text" placeholder="Nombre de la categoria" style="width: 350px;">
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-between">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
+        <button type="button" class="btn-primary guardar">Guardar</button>
       </div>
     </div>
   </div>
@@ -276,15 +290,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Categoria</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <span>Nombre de la categoria</span>
+        <input class="ventana mt-3" type="text" placeholder="Nombre de la categoria a actualizar" style="width: 350px;">
+        <button type="button" class="btn-primary guardar">Actualizar</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
+      
       </div>
     </div>
   </div>
@@ -295,15 +311,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Categoria</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <span>Nombre de la categoria a eliminar</span>
+        <button type="button" class="btn-primary guardar mx-xxl-5">Eliminar</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary">Save changes</button>
       </div>
     </div>
   </div>

@@ -50,7 +50,7 @@ body {
 .ventana:focus{
     outline-width: 0;
 }
-.guargar{
+.guardar{
     background-color:#18DAC8;
     border: 1px solid #18DAC8;
     border-radius: 5px;
