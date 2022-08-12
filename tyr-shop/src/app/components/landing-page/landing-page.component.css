@@ -41,8 +41,8 @@ color: #000000;
 
 #inicio {
 position: absolute;
-width: 254px;
-height: 78px;
+width: 200px;
+height: 50px;
 left: 41.03px;
 top: 540.91px;
 
@@ -108,3 +108,30 @@ color: #000000;
 #enlace {
     
 }
+
+#inicioSesion {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 41.03px;
+    top: 615px;
+    
+    background: #18DAC8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    transform: rotate(0.04deg);
+    position: absolute;
+    border-width: 0px;
+    
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    
+    color: #000000;
+    }
+    #inicioSesion:hover {
+        background-color: #1bab9d;
+        cursor: pointer;
+    }
