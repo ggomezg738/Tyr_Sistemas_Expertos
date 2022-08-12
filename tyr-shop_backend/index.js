@@ -2,13 +2,37 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
+const mongoose = require('mongoose');
 var usuarios = [{
 }]
+
+mongoose.connect('mongodb://localhost/tyr', function (err) {
+ 
+    if (err) throw err;
+  
+    console.log('Successfully connected');
+  
+ });
+
+ app.use('/api/cliente', require('./routes/cliente'));
+
+
+/*
+var cliente = mongoose.Schema({
+    nombre: String,
+    apellido: String,
+    correoElectronico: String,
+    contrasenia: String,
+    direccion: String
+});
+*/
 
 app.use(cors()); //Permite peticiones de otros orígenes
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+
+/*
 app.get('/', function(req, res){
     res.send('<html><body><h1>Nooo</h1></body></html>');
 });
@@ -16,8 +40,10 @@ app.get('/', function(req, res){
 app.get('/pagina1', function(req, res){
     res.send('<html><body><h1>pagina 1</h1></body></html>');
 });
+*/
 
 //Crear Usuario
+/*
 app.post('/usuarios', function(req, res){
     let usuario = {
         nombre: req.body.nombre,
@@ -30,6 +56,7 @@ app.post('/usuarios', function(req, res){
     usuarios.push(usuario);
     res.send({codigoResultado:1, mensaje:'Registro guardado', usuario: usuario});
 });
+*/
 
 //Obtener Usuario
 app.get('/usuarios/:id', function(req, res){
