@@ -57,9 +57,11 @@ export class RegistroUsuarioClienteComponent implements OnInit {
       direccion: this.clienteForm.get('direccion')?.value,
     }
     
-    console.log(CLIENTE);
+    this.httpClient.post('http://localhost:8888/guardarCliente', CLIENTE)
+    .subscribe(res=>{
+        console.log(res)});
     this.router.navigate(['/tiendas']);
-
+    
   }
 
 }
