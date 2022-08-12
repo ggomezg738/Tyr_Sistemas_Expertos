@@ -40,3 +40,9 @@
     background: #18DAC8;
     margin-top: 10px;
 }
+.accordion{
+    float:right;
+    width:20%;
+    height: 100rem; 
+    background: #18DAC8;
+}
