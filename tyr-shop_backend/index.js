@@ -5,6 +5,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const { encrypt, compare } = require('./helper/handleBcryptjs');
 const mongoose = require('mongoose');
 
 const Cliente = require('./models/Cliente');
@@ -48,50 +49,62 @@ const clienteSchema = new mongoose.Schema({
 const cliente = mongoose.model('cliente', clienteSchema);
 
 // Crear cliente
-app.post("/guardarCliente", (req, res) => {
-    const body = req.body;
-    const cliente = new Cliente(body);
-    cliente.save();
-    res.json({
+app.post("/guardarCliente", async (req, res) => {
+    try{
+
+        const { nombre,  apellido,  correoElectronico, contrasenia, direccion } = req.body;
+        const passwordHash = await encrypt(contrasenia);
+        const cliente = await new Cliente({
+            nombre,
+            apellido,
+            correoElectronico, 
+            contrasenia: passwordHash, 
+            direccion
+        })
+        cliente.save();
+        res.json({
         mensaje:"Cliente guardado",
         cliente,
     });
+
+    } catch(error){
+
+        console.log(error);
+
+    }
 });
+//Login de Usuario
 
+const loginCtrl = async (req, res) => {
+    try{
+        const { correoElectronico, contrasenia } = req.body;
+        const usuario = await cliente.findOne({ correoElectronico });
+        if(!usuario){
+            res.status(404)
+            res.send({ error: 'Usuario no encontrado' });
+        } 
+        const checkPassword = await compare(contrasenia, usuario.contrasenia);
+        if(checkPassword) {
+            res.send({
+                mensaje: "Logueado exitosamente!!",
+                data: usuario
+            })
+            return;
+        }
 
-/*
-app.get('/', function(req, res){
-    res.send('<html><body><h1>Nooo</h1></body></html>');
-});
+        if(!checkPassword) {
+            res.status(409);
+            res.send({
+                error: 'Contrasenia incorrecta'
+            })
+            return;
+        }
+    } catch(error){
+        console.log(error);
+    }
+}
 
-app.get('/pagina1', function(req, res){
-    res.send('<html><body><h1>pagina 1</h1></body></html>');
-});
-*/
-
-//Crear Usuario
-/*
-app.post('/usuarios', function(req, res){
-    const ClienteSchema = mongoose.Schema({
-
-        nombre: String,
-        apellido: String,
-        correoElectronico: String,
-        contrasenia: String,
-        direccion: String
-    
-    });
-    let cliente;
-
-        //Creamos el cliente
-        cliente = new Cliente(req.body);
-
-        await cliente.save();
-        res.send(cliente);
-    
-});
-*/
-
+app.post("/loginUsuario", loginCtrl)
 
 //Obtener Usuario
 app.get('/usuarios/:id', function(req, res){
