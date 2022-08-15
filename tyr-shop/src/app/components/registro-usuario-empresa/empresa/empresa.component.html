@@ -173,7 +173,7 @@
                   </select>
                 </div>
               </div>
-              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
               data-bs-parent="#accordionFlushExample">
               <button class="btn btn-primary" style="margin-left:5px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Banner
@@ -181,13 +181,15 @@
               <div class="collapse" id="collapseExample">
                 <select class="form-select btn-secondary bg-light text-secondary ml-5 mr-5" id="" name="" style="width:150px; border-width: 0px; border-radius: 5px;" required>
                   <option selected disabled hidden>Seleccionar</option>
-                  <option *ngFor="let banner of listaBanner">
-                    {{banner.nombre}}
+                  <option *ngFor="let listabanner of listaBanner">
+                    <div>
+                      <button class="" type="submit">{{listabanner.nombre}}</button>
+                    </div>
                   </option> 
                 </select>
               </div>
             </div>
-            </div>
+          </div>
     </div>
 
   <div style="margin-left:600px; margin-top: 50px;">

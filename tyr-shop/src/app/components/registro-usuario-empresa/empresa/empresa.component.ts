@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Estilo } from 'src/app/models/estilo';
+import {enableProdMode} from '@angular/core';
 
 @Component({
   selector: 'app-empresa',
@@ -17,15 +18,15 @@ export class EmpresaComponent implements OnInit {
   public listaCard: any = [];
   public listaBanner: any = [];
   public value: any ;
-  public estilo : Estilo;
+  
   seleccion: String = '';
 
  
   constructor(private httpClient:HttpClient, estilo:Estilo) {
-      this.estilo = estilo;
    }
 
   ngOnInit(): void {
+    enableProdMode();
     this.cargarEstilos();
     this.cargarEstilosNavbar();
     this.cargarEstilosCard();
@@ -60,7 +61,7 @@ export class EmpresaComponent implements OnInit {
   //Cargar Los estilos en el html de la pagina
 
   renderizar(){
-    this.seleccion = this.estilo.tipo;
+    this.seleccion ;
     console.log(this.seleccion);
   }
 
