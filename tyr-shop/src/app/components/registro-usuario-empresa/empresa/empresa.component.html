@@ -136,6 +136,42 @@
                 </div>
               </div>
             </div>  
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                   Estilos
+                </button>
+              </h2>
+              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+                data-bs-parent="#accordionFlushExample">
+                <button class="btn btn-primary" style="margin-left:5px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Navbar
+                </button>
+                <div class="collapse" id="collapseExample">
+                  <select class="form-select btn-secondary bg-light text-secondary ml-5 mr-5" id="" name="" style="width:150px; border-width: 0px; border-radius: 5px;" required>
+                    <option value=" "  selected disabled hidden>Seleccionar</option>
+                    <option value="" *ngFor="let listaNav of listaNavbar">
+                      {{listaNav.nombre}}
+                    </option> 
+                </select>
+                </div>
+              </div>
+              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+                data-bs-parent="#accordionFlushExample">
+                <button class="btn btn-primary" style="margin-left:5px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Card
+                </button>
+                <div class="collapse" id="collapseExample">
+                  <select class="form-select btn-secondary bg-light text-secondary ml-5 mr-5" id="" name="" style="width:150px; border-width: 0px; border-radius: 5px;" required>
+                    <option value=" "  selected disabled hidden>Seleccionar</option>
+                    <option value="" *ngFor="let listacard of listaCard">
+                      {{listacard.nombre}}
+                    </option> 
+                </select>
+                </div>
+              </div>
+            </div>
   </div>
 
   <!-- Modal -->

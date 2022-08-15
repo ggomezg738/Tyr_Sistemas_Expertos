@@ -5,6 +5,10 @@ var cors = require('cors');
 const mongoose = require('mongoose');
 const Cliente = require('./models/Cliente');
 const Empresa = require('./models/Empresa');
+const Estilo = require('./models/Estilo');
+const { encrypt, compare } = require('./helper/handleBcryptjs');
+const { route } = require('./routes/cliente');
+const router = express.Router();
 /*
 const conectarDB = require('./config/db');
 */
@@ -16,6 +20,13 @@ try{
 } catch(error){
     console.log(error);
 }
+
+app.use(cors()); //Permite peticiones de otros orígenes
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+bodyParser.urlencoded({ extended: true });
+app.use(express.json());
+var jsonParser = bodyParser.json();
 
 
  app.use('/api/cliente', require('./routes/cliente'));
@@ -33,13 +44,7 @@ const clienteSchema = new mongoose.Schema({
 const cliente = mongoose.model('cliente', clienteSchema)
 
 
-app.use(cors()); //Permite peticiones de otros orígenes
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-bodyParser.urlencoded({ extended: true });
-app.use(express.json());
-
-// Crear cliente
+/*
 app.post("/guardarCliente", (req, res) => {
     const body = req.body;
     const cliente = new Cliente(body);
@@ -49,6 +54,71 @@ app.post("/guardarCliente", (req, res) => {
         cliente,
     });
 });
+*/
+
+// Crear cliente
+
+app.post("/guardarCliente", async (req, res) => {
+
+    try{
+
+        const { nombre,  apellido,  correoElectronico, contrasenia, direccion } = req.body;
+        const passwordHash = await encrypt(contrasenia);
+        const cliente = await new Cliente({
+            nombre,  
+            apellido,  
+            correoElectronico, 
+            contrasenia: passwordHash, 
+            direccion
+        })
+        cliente.save();
+        res.json({
+        mensaje:"Cliente guardado",
+        cliente,
+    });
+
+    } catch(error){
+
+        console.log(error);
+
+    }
+    
+});
+
+//Login de Usuario
+
+const loginCtrl = async (req, res) => {
+    try{
+        const { correoElectronico, contrasenia } = req.body;
+        const usuario = await cliente.findOne({ correoElectronico });
+        if(!usuario){
+            res.status(404)
+            res.send({ error: 'Usuario no encontrado' });
+        } 
+        const checkPassword = await compare(contrasenia, usuario.contrasenia);
+        if(checkPassword) {
+            res.send({
+                mensaje: "Logueado exitosamente!!",
+                data: usuario
+            })
+            return;
+        }
+
+        if(!checkPassword) {
+            res.status(409);
+            res.send({
+                error: 'Contrasenia incorrecta'
+            })
+            return;
+        }
+    } catch(error){
+        console.log(error);
+    }
+}
+
+app.post("/loginUsuario", loginCtrl)
+
+
 
 
 /*
@@ -141,6 +211,48 @@ app.post("/guardarEmpresa", (req, res) => {
         mensaje:"Cliente guardado",
         empresa,
     });
+});
+
+
+/*====================================Estilos==================================================*/
+
+//Guardar Estilo
+app.post("/guardarEstilo", (req, res) => {
+    const body = req.body;
+    const estilo = new Estilo(body);
+    estilo.save();
+    res.json({
+        mensaje:"Estilo guardado",
+        estilo,
+    });
+});
+
+//Recuperar los estilos
+app.get('/obtenerEstilos', function(req,res){
+    Estilo.find(
+        function(err, estilo){
+            if(err){
+                res.send(err);
+            } else {
+                res.json(estilo);
+            }
+        }
+    )
+});
+
+
+//Obtener Estilos Navbar
+app.get('/obtenerEstilosNavbar', async function(req,res){
+    var estilo = new Estilo();
+    estilo = await Estilo.where("tipo").equals("Navbar");
+    res.send(estilo);
+});
+
+//Obtener estilos Card
+app.get('/obtenerEstilosCard', async function(req,res){
+    var estilo = new Estilo();
+    estilo = await Estilo.where("tipo").equals("Card");
+    res.send(estilo);
 });
 
 

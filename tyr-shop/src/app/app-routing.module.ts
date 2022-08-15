@@ -22,7 +22,7 @@ const routes: Routes = [
     component:RegistroUsuarioClienteComponent
   },
   {
-    path:'registroEmpresa',
+    path:'admin-companies',
     component:RegistroUsuarioEmpresaComponent
   },
   {
