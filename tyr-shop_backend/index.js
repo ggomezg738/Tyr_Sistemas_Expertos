@@ -1,10 +1,24 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var cors = require('cors');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const multer = require('multer');
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
 const mongoose = require('mongoose');
+
 const Cliente = require('./models/Cliente');
 const Empresa = require('./models/Empresa');
+const Archivo = require('./models/Archivo');
+const Categoria = require('./models/Categoria');
+
+const app = express();
+
+app.use(cors()); //Permite peticiones de otros orígenes
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json());
+app.set("view engine", "ejs");
 /*
 const conectarDB = require('./config/db');
 */
@@ -16,6 +30,7 @@ try{
 } catch(error){
     console.log(error);
 }
+
 
 
  app.use('/api/cliente', require('./routes/cliente'));
@@ -30,14 +45,7 @@ const clienteSchema = new mongoose.Schema({
     direccion: String
 });
 
-const cliente = mongoose.model('cliente', clienteSchema)
-
-
-app.use(cors()); //Permite peticiones de otros orígenes
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-bodyParser.urlencoded({ extended: true });
-app.use(express.json());
+const cliente = mongoose.model('cliente', clienteSchema);
 
 // Crear cliente
 app.post("/guardarCliente", (req, res) => {
@@ -118,7 +126,7 @@ app.delete('/usuarios/:id', function(req, res){
     res.send({codigoResultado:1, mensaje:"Usuario Eliminado"});
 });
 
-/*====================================Empresas==================================================*/
+/*====================================Empresas==============================================*/
 
 const empresaSchema = new mongoose.Schema({
     nombre: String,
@@ -143,6 +151,39 @@ app.post("/guardarEmpresa", (req, res) => {
     });
 });
 
+/*======================= Imagenes archivos============================== */
+const storage = multer.diskStorage({
+    destination: (req, file, cb) =>{
+        cb(null,path.join(__dirname,'./uploads') )
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${file.fieldname}-${Date.now()}.${file.mimetype.split('/')[1]}`);
+    }
+});
+
+app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
+const upload = multer({ storage });
+
+app.post('/upload', upload.single('file'), (req, res, next) => {
+ 
+    var obj = {
+        nombre: req.body.nombre,
+        archivo: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            contentType: 'archivo'
+        },
+        tipoArchivo: req.body.tipoArchivo,
+    }
+    Archivo.create(obj, (err, item) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // item.save();
+            res.redirect('/upload');
+        }
+    });
+});
 
 app.listen(8888, function(){
     console.log('Se levanto el servidor.');

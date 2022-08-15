@@ -146,20 +146,22 @@
         <h5 class="modal-title" id="staticBackdropLabel">Agregar Imagenes, Videos y otros archivos</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body flex-column">
-      <input class="ventana" type="text" placeholder="Nombre">
-      <input class="mt-3 mb-3" type="file" name="archivo" id="archivo">
-      <select class="ventana" name="" id="">
+      <form [formGroup]="archivoForm" (ngSubmit)="guardarArchivo()">
+      <div class="modal-body flex-column form-group">
+      <input formControlName="nombre" id="nombre" name="nombre" class="ventana" type="text" placeholder="Nombre">
+      <input formControlName="archivo" class="mt-3 mb-3" type="file" name="archivo" id="archivo" (change)="onFileSelect($event)">
+      <select formControlName="tipoArchivo" class="ventana" name="tipoArchivo" id="tipoArchivo">
         <option value=" "  selected disabled hidden>Tipo de archivo</option>
         <option value="1">Imagen</option>
         <option value="2">Video</option>
         <option value="3">Archivos genericos</option>
       </select>
       </div>
-      <div class="modal-footer flex-row justify-content-between">
+      <div class="modal-footer flex-row justify-content-between form-group">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary guardar">Guardar</button>
+        <button type="submit" class="btn-primary guardar">Guardar</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -275,13 +277,15 @@
         <h5 class="modal-title" id="exampleModalLabel">Agregar Categoria</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <input class="ventana mt-3" type="text" placeholder="Nombre de la categoria" style="width: 350px;">
+      <form>
+      <div class="modal-body form-group">
+        <input formControlName="nombre" id="nombre" name="nombre" class="ventana mt-3" type="text" placeholder="Nombre de la categoria" style="width: 350px;">
       </div>
-      <div class="modal-footer justify-content-between">
+      <div form-group class="modal-footer form-group justify-content-between">
         <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn-primary guardar">Guardar</button>
+        <button type="submit" class="btn-primary guardar">Guardar</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
