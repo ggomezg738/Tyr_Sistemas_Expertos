@@ -16,14 +16,20 @@ export class EmpresaComponent implements OnInit {
   public listaNavbar: any = [];
   public listaCard: any = [];
   public listaBanner: any = [];
+  public value: any ;
+  public estilo : Estilo;
+  seleccion: String = '';
 
  
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, estilo:Estilo) {
+      this.estilo = estilo;
+   }
 
   ngOnInit(): void {
     this.cargarEstilos();
     this.cargarEstilosNavbar();
     this.cargarEstilosCard();
+    this.cargarEstilosBanner();
   }
 
   cargarEstilos(){
@@ -36,15 +42,26 @@ export class EmpresaComponent implements OnInit {
   cargarEstilosNavbar(){
     this.httpClient.get('http://localhost:8888/obtenerEstilosNavbar')
     .subscribe(res=>{
-        this.listaNavbar = res;
-        console.log(this.listaNavbar);});
+        this.listaNavbar = res;});
   }
 
   cargarEstilosCard(){
     this.httpClient.get('http://localhost:8888/obtenerEstilosCard')
     .subscribe(res=>{
-        this.listaCard = res;
-        console.log(this.listaCard);});
+        this.listaCard = res;});
+  }
+
+  cargarEstilosBanner(){
+    this.httpClient.get('http://localhost:8888/obtenerEstilosBanner')
+    .subscribe(res=>{
+        this.listaBanner = res;});
+  }
+
+  //Cargar Los estilos en el html de la pagina
+
+  renderizar(){
+    this.seleccion = this.estilo.tipo;
+    console.log(this.seleccion);
   }
 
 }

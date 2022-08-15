@@ -28,6 +28,9 @@ bodyParser.urlencoded({ extended: true });
 app.use(express.json());
 var jsonParser = bodyParser.json();
 
+//==============================================================================================
+//==========================================Usuarios============================================
+//==============================================================================================
 
  app.use('/api/cliente', require('./routes/cliente'));
 
@@ -188,7 +191,9 @@ app.delete('/usuarios/:id', function(req, res){
     res.send({codigoResultado:1, mensaje:"Usuario Eliminado"});
 });
 
+//===============================================================================================
 /*====================================Empresas==================================================*/
+//===============================================================================================
 
 const empresaSchema = new mongoose.Schema({
     nombre: String,
@@ -213,8 +218,9 @@ app.post("/guardarEmpresa", (req, res) => {
     });
 });
 
-
+//==============================================================================================
 /*====================================Estilos==================================================*/
+//==============================================================================================
 
 //Guardar Estilo
 app.post("/guardarEstilo", (req, res) => {
@@ -252,6 +258,13 @@ app.get('/obtenerEstilosNavbar', async function(req,res){
 app.get('/obtenerEstilosCard', async function(req,res){
     var estilo = new Estilo();
     estilo = await Estilo.where("tipo").equals("Card");
+    res.send(estilo);
+});
+
+//Obtener estilos Banner
+app.get('/obtenerEstilosBanner', async function(req,res){
+    var estilo = new Estilo();
+    estilo = await Estilo.where("tipo").equals("Banner");
     res.send(estilo);
 });
 
